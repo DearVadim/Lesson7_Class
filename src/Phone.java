@@ -1,30 +1,28 @@
-import java.util.Scanner;
-
 public class Phone {
     private String number, model;
     private Short weight;
+    private final int PhoneID;
 
-    public static int PhoneId;
+    public static int PhoneCounter;
 
     public Phone() {
-        System.out.printf("Создаём телефон номер %d%n", ++PhoneId);
-    }
-
-    public static int getPhoneId() {
-        return PhoneId;
+        System.out.printf("Создаём телефон номер %d%n", ++PhoneCounter);
+        this.PhoneID = PhoneCounter;
     }
 
     public Phone(String number, String model, Short weight) {
-        System.out.printf("Создаём телефон номер %d%n", ++PhoneId);
+        System.out.printf("Создаём телефон номер %d%n", ++PhoneCounter);
         this.number = number;
         this.model = model;
         this.weight = weight;
+        this.PhoneID = PhoneCounter;
     }
 
     public Phone(String number, String model) {
-        System.out.printf("Создаём телефон номер %d%n", ++PhoneId);
+        System.out.printf("Создаём телефон номер %d%n", ++PhoneCounter);
         this.number = number;
         this.model = model;
+        this.PhoneID = PhoneCounter;
     }
 
     public String getNumber() {
@@ -51,8 +49,12 @@ public class Phone {
         this.weight = weight;
     }
 
+    public int getPhoneID() {
+        return PhoneID;
+    }
+
     public void receiveCall(String CallersName){
-        System.out.printf("На телефон модели %s, номер %s идет вызов от контакта: %s%n", getModel(), getNumber(), CallersName);
+        System.out.printf("На %d-й телефон модели %s, номер %s идет вызов от контакта: %s%n", PhoneID, model, number, CallersName);
 
     }
 
